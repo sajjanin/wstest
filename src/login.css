@@ -43,7 +43,7 @@ img.avatar {
 }
 
 .container {
-    padding: 16px;
+    padding: 16px;    
 }
 
 span.psw {
@@ -56,4 +56,9 @@ span.psw {
     color: blue;
     text-decoration: underline;
     cursor: pointer;
+}
+
+.error{
+    color: red;
+    padding: 5px 0px 5px 0px;
 }

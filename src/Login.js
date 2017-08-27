@@ -1,7 +1,7 @@
 import React from 'react';
 import './login.css';
 
-const Login = ({ username, password, rememberMe, onLogin, onRememberMe, onInputChange }) => {
+const Login = ({ username, password, rememberMe, invalidCredentials, onLogin, onRememberMe, onInputChange }) => {
     return (
         <form onSubmit={onLogin}>
             <div className="imgcontainer">
@@ -11,6 +11,10 @@ const Login = ({ username, password, rememberMe, onLogin, onRememberMe, onInputC
                     className="avatar" />
             </div>
             <div className="container">
+                {
+                    invalidCredentials &&
+                    <div className="error">Username/Password is not valid.</div>
+                }
                 <label><b>Username</b></label>
                 <input
                     type="text"
