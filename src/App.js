@@ -1,18 +1,44 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
+import Login from './Login'
 import './App.css';
 
 class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      rememberMe: true,
+      username: '',
+      password: ''
+    }
+  }
+
+  onLogin = (e) => {
+    e.preventDefault();
+    alert(`Hello ${this.state.password}`);
+  }
+
+  onRememberMe = (e) => {
+    this.setState({
+      rememberMe: e.target.checked
+    });
+  }
+
+  onInputChange = (field, value) => {
+    this.setState({ [field]: value });
+  }
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          Starter react application base.
-        </p>
+      <div className="main-container">
+        <Login
+          {...this.state}
+          rememberMe={this.state.rememberMe}
+          onLogin={this.onLogin}
+          onRememberMe={this.onRememberMe}
+          onInputChange={this.onInputChange}
+        />
       </div>
     );
   }
