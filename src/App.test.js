@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 
 import App from './App';
 import Login from './Login';
-
+import Home from './Home';
 
 describe('App Component', () => {
 
@@ -17,6 +17,11 @@ describe('App Component', () => {
 
   it('should render Login Component', () => {
     expect(wrapper.find(Login).exists()).toBe(true);
+  });
+
+  it('should render Home Component', () => {
+    wrapper.setState({ loggedIn: true });
+    expect(wrapper.find(Home).exists()).toBe(true);
   });
 
 });

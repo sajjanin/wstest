@@ -9,6 +9,7 @@ describe('Login Component', () => {
         username: '',
         password: '',
         rememberMe: true,
+        invalidCredentials: false,
         onLogin: jest.fn(),
         onRememberMe: jest.fn(),
         onInputChange: jest.fn()
@@ -38,11 +39,17 @@ describe('Login Component', () => {
     });
 
     it('should have correct values set for username, password and rememberMe', () => {
-        const username = 'dev_user', password = 'password-1', rememberMe = false;
+        const username = 'studiouser', password = 'password-1', rememberMe = false;
         wrapper.setProps({ username, password, rememberMe });
         expect(wrapper.find('input[type="text"]').prop('value')).toBe(username);
         expect(wrapper.find('input[type="password"]').prop('value')).toBe(password);
         expect(wrapper.find('input[type="checkbox"]').prop('checked')).toBe(rememberMe);
+        expect(wrapper.find('div.error').length).toBe(0);
+    });
+
+    it('should have show error message,if invalid credentials are entered', () => {
+        wrapper.setProps({ invalidCredentials: true });
+        expect(wrapper.find('div.error').length).toBe(1);
     });
 
 });
