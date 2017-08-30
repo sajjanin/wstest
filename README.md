@@ -1,5 +1,5 @@
-
-## How do you get this up and running?
+﻿
+## How do you get this up and running??
 
 1. Clone the repo - `git clone https://github.com/sajjanin/wstest.git`
 1. `cd lp-workshop`
